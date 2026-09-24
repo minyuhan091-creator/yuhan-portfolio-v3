@@ -532,3 +532,53 @@ a:focus-visible,button:focus-visible{outline:3px solid #ad6471;outline-offset:4p
 @media(prefers-reduced-motion:reduce){
   .profile-card,.floating-chip,.hero-visual::after{animation:none}
 }
+
+
+/* Personal gallery: layered photo scrapbook */
+.gallery{padding:35px 0 145px}
+.gallery-grid{display:grid;grid-template-columns:1.03fr .97fr 1fr;gap:21px;align-items:start;position:relative;padding:30px 18px 15px}
+.gallery-grid::before{content:"";position:absolute;inset:0 0 5%;border:2px dashed #a7c6c0;border-radius:35px;background:repeating-linear-gradient(90deg,rgba(187,217,213,.28) 0 24px,rgba(255,255,255,.2) 24px 48px),#faf7eb;transform:rotate(-1deg)}
+.gallery-grid::after{content:"✿";position:absolute;right:-10px;bottom:-35px;color:#efb0bb;font-size:84px;line-height:1;text-shadow:3px 3px 0 #fffaf0;pointer-events:none}
+.gallery-photo{position:relative;z-index:1;margin:0;padding:12px 12px 16px;background:#fffdf6;border:2px solid #26354b;border-radius:9px;box-shadow:7px 9px 0 #f1c3cc;transition:transform .25s ease,box-shadow .25s ease}
+.gallery-photo::before{content:"";position:absolute;z-index:3;top:-12px;left:calc(50% - 31px);width:62px;height:22px;background:rgba(250,210,151,.79);border:1px solid rgba(163,123,100,.18);transform:rotate(-6deg)}
+.gallery-photo:nth-child(2)::before{background:rgba(203,224,217,.83);transform:rotate(5deg)}
+.gallery-photo:nth-child(3)::before{background:rgba(236,201,221,.82)}
+.gallery-photo:nth-child(4)::before{background:rgba(232,213,166,.84);transform:rotate(7deg)}
+.gallery-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:3px;background:#f4eee6}
+.gallery-photo figcaption{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 4px 0;font-size:13px;font-weight:700;color:#43536b}
+.gallery-photo figcaption span{color:#d48391;font-size:23px;line-height:1}
+.gallery-photo-main{grid-row:span 2;height:580px;transform:rotate(-3deg)}
+.gallery-photo-main img{height:calc(100% - 40px);object-position:center 20%}
+.gallery-photo-celebrate{height:380px;transform:rotate(3deg);margin-top:32px;box-shadow:7px 9px 0 #c8e3dd}
+.gallery-photo-celebrate img{height:calc(100% - 40px)}
+.gallery-photo-studio{height:420px;transform:rotate(-2deg);margin-top:5px;box-shadow:7px 9px 0 #f6dca4}
+.gallery-photo-studio img{height:calc(100% - 40px)}
+.gallery-photo-night{height:225px;grid-column:2 / 4;transform:rotate(2deg);margin:0 50px 0 15px;box-shadow:7px 9px 0 #d8d0e8}
+.gallery-photo-night img{height:calc(100% - 40px);object-position:center 35%}
+.gallery-photo:hover{transform:translateY(-7px) rotate(0deg);box-shadow:9px 14px 0 #eebac8}
+@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-photo-main{grid-row:span 2;height:550px}.gallery-photo-studio{height:340px}.gallery-photo-celebrate{height:340px}.gallery-photo-night{grid-column:1 / 3;height:230px;margin:0 30px}}
+@media(max-width:560px){.gallery{padding-bottom:95px}.gallery-grid{gap:13px;padding:24px 12px 16px}.gallery-photo{padding:7px 7px 10px}.gallery-photo figcaption{font-size:10px;padding-top:7px}.gallery-photo figcaption span{font-size:18px}.gallery-photo-main{height:345px}.gallery-photo-celebrate{height:210px;margin-top:22px}.gallery-photo-studio{height:190px;margin-top:0}.gallery-photo-night{height:185px;margin:0 8px}.gallery-grid::after{font-size:48px;right:0;bottom:-22px}}
+/* Project photo and process card refinements */
+.method-large{display:flex;flex-direction:column}
+.method-large>p{max-width:620px}
+.method-notes{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:auto;padding-top:30px;max-width:680px}
+.method-notes span{display:flex;align-items:center;gap:12px;min-height:76px;padding:15px 20px;border:2px solid #26354b;border-radius:12px;background:#fff8e8;box-shadow:4px 5px 0 #eebfca;font-weight:800;font-size:17px;transform:rotate(-2deg)}
+.method-notes span:nth-child(2){background:#fce0d8;transform:rotate(2deg)}
+.method-notes span:nth-child(3){background:#dce6f2;transform:rotate(2deg)}
+.method-notes span:nth-child(4){background:#f5e5b9;transform:rotate(-2deg)}
+.method-notes b{font-size:12px;letter-spacing:.08em;color:#af6c66}
+.method-large::after{right:-100px;bottom:-130px;pointer-events:none}
+.visual-teaching{min-height:560px}
+.visual-teaching .progress-ring{top:95px;width:170px;height:170px;z-index:2}
+.visual-teaching .progress-ring::before{width:126px;height:126px}
+.visual-teaching .progress-ring span{font-size:34px}
+.classroom-snapshot{position:absolute;left:9%;right:9%;top:292px;bottom:22px;z-index:2;margin:0;padding:8px 8px 31px;border:2px solid #26354b;border-radius:7px;background:#fffdf6;box-shadow:6px 7px 0 #efb8c8;transform:rotate(-3deg)}
+.classroom-snapshot::before{content:"";position:absolute;left:calc(50% - 29px);top:-11px;width:58px;height:20px;background:rgba(248,221,161,.78);transform:rotate(7deg);z-index:3}
+.classroom-snapshot img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 45%;border-radius:3px}
+.classroom-snapshot figcaption{position:absolute;left:12px;bottom:6px;font-size:12px;font-weight:700;color:#46576b}
+.visual-ai{background:linear-gradient(180deg,rgba(249,245,253,.88) 0%,rgba(247,247,253,.35) 27%,rgba(33,44,64,.07) 65%,rgba(28,40,60,.68) 100%),url("assets/ai-education-scenario.png") center center / cover no-repeat}
+.visual-ai::before,.visual-ai::after{display:none}
+.visual-ai .visual-number,.visual-ai .visual-copy{position:relative;z-index:2;color:#24354a}
+.visual-ai .visual-copy span,.visual-ai .visual-copy strong{color:#24354a}
+.ai-scenario-note{position:absolute;z-index:3;left:34px;bottom:27px;padding:8px 11px;background:rgba(255,253,246,.92);color:#26354b;border:1px solid #26354b;border-radius:8px;font-size:12px;font-weight:700}
+@media(max-width:560px){.method-notes{gap:9px}.method-notes span{min-height:62px;padding:9px;font-size:13px;gap:6px}.method-notes b{font-size:10px}.visual-teaching{min-height:480px}.visual-teaching .progress-ring{top:92px;width:136px;height:136px}.visual-teaching .progress-ring::before{width:102px;height:102px}.visual-teaching .progress-ring span{font-size:27px}.classroom-snapshot{top:260px;left:8%;right:8%;bottom:19px}.ai-scenario-note{left:22px;bottom:20px;font-size:10px}}
